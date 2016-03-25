@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DivideLibros2"
         mc:Ignorable="d"
-        Title="Divide libros 2.0" Height="400" Width="400" ResizeMode="NoResize">
+        Title="Divide libros 2.0" Height="650" Width="400" ResizeMode="NoResize">
+
+
     <Window.Resources>
         <Style x:Key="Label1" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="14"/>
@@ -17,6 +19,12 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
         </Style>
+        <Style x:Key="TextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Width" Value="180"/>
+        </Style>
         <Style x:Key="Button" TargetType="{x:Type Button}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
@@ -27,15 +35,14 @@
         <Style x:Key="Border" TargetType="{x:Type Border}">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="2"/>
-<Setter Property="Margin" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
 
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <StackPanel Name="panelPrincipal" Orientation="Vertical">
             <Border Style="{StaticResource Border}">
-
                 <StackPanel Name="SeleccionarLibro" Orientation="Horizontal" Height="110">
                     <Image Source="Imagenes/libros.png" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
@@ -50,11 +57,36 @@
                     <Image Source="Imagenes/algoritmo.jpg" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
                         <Label Content="Seleccionar un algoritmo" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
-                        <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged"></ComboBox>
+                        <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged" Margin="10,0"></ComboBox>
                         <Button Content="Detectar capitulos"  Margin="10" Click="ButtonDetectar_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
+
+            <Border Style="{StaticResource Border}" >
+                <StackPanel Name="MostrarResultados" Orientation="Vertical" >
+                    <Label Content="Capitulos encontrados" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" >
+                        <StackPanel Name="panelCapitulos" Orientation="Vertical" Height="200">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="hola"></Label>
+                                <Label Content="2"></Label>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Border}">
+                <StackPanel Name="GuardarFicheros" Orientation="Horizontal" Height="110">
+                    <StackPanel  Orientation="Vertical" Width="280">
+                        <Label Content="Nombre para guardar" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
+                        <TextBox Name="textBoxNombre" Style="{StaticResource ResourceKey=TextBox}"/>
+                    </StackPanel>
+                    <Image Source="Imagenes/save.jpg" Height="80" Margin="10" MouseLeftButtonUp="Save_MouseLeftButtonUp"/>
+                </StackPanel>
+            </Border>
+
         </StackPanel>
     </Grid>
 </Window>

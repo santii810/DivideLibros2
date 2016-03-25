@@ -26,9 +26,9 @@ namespace DivideLibros2
     {
 
         FileInfo fichero;
-        List<string> lineasLibro = new List<string>();
+        public List<string> lineasLibro = new List<string>();
+        public List<Capitulo> capitulos = new List<Capitulo>();
         GestorFicheros gestor = new GestorFicheros();
-        List<Capitulo> capitulos = new List<Capitulo>();
         List<Algoritmo> algoritmos = new List<Algoritmo>();
         Algoritmo algoritmo = new Algoritmo();
 
@@ -97,14 +97,67 @@ namespace DivideLibros2
                 {
                     case 1:
                         //PROLOGO + Solo numeros
-                        capitulos = GestorCapitulos.obtenerCapitulosAlgoritmo1(lineasLibro);
+                        Thread buscarCapitulos = new Thread(delegate () { GestorCapitulos.obtenerCapitulosAlgoritmo1(this); });
+                        GestorCapitulos.obtenerCapitulosAlgoritmo1(this);
                         break;
-
-
-
                 }
 
+
+
+
+                //Añade capitulos
+                panelCapitulos.Children.Clear();
+                foreach (Capitulo item in capitulos)
+                {
+                    panelCapitulos.Children.Add(addCapituloALista(item));
+                }
             }
+        }
+
+        private static StackPanel addCapituloALista(Capitulo capitulo)
+        {
+
+            StackPanel tmpPanel = new StackPanel();
+            tmpPanel.Orientation = Orientation.Horizontal;
+            tmpPanel.HorizontalAlignment = HorizontalAlignment.Center;
+
+
+            //Label tmpLabel = new Label();
+            //tmpLabel.Content = capitulo.nombre;
+            //tmpLabel.Style = (Style)Application.Current.Resources["Label2"];
+            //tmpLabel.Width = 50;
+            //tmpPanel.Children.Add(tmpLabel);
+
+            Label tmpLabelInicio = new Label();
+            tmpLabelInicio.Content = capitulo.lineaInicio.ToString();
+            tmpLabelInicio.Style = (Style)Application.Current.Resources["Label2"];
+            tmpLabelInicio.Width = 50;
+
+            tmpPanel.Children.Add(tmpLabelInicio);
+
+
+            Label tmpLabelFin = new Label();
+            tmpLabelFin.Content = capitulo.lineaFin.ToString();
+            tmpLabelFin.Style = (Style)Application.Current.Resources["Label2"];
+            tmpLabelFin.Width = 50;
+
+            tmpPanel.Children.Add(tmpLabelFin);
+
+
+
+            Button tmpButon = new Button();
+            tmpButon.Content = "Leer";
+            tmpButon.Style = (Style)Application.Current.Resources["Button"];
+            tmpPanel.Children.Add(tmpButon);
+
+            return tmpPanel;
+
+        }
+
+
+        private void Save_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

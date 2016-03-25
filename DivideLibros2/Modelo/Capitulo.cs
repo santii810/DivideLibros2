@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DivideLibros2.Modelo
 {
-    class Capitulo
+    public class Capitulo
     {
         public string nombre { get; set; }
         public int lineaInicio { get; set; }

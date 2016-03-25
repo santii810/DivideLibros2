@@ -4,35 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace DivideLibros2.Modelo
 {
-   static class GestorCapitulos
+    static class GestorCapitulos
     {
 
 
         #region Algoritmo 1
 
-        static public List<Capitulo> obtenerCapitulosAlgoritmo1(List<string> lineasLibro)
+        internal static void obtenerCapitulosAlgoritmo1(MainWindow mainWindow)
         {
-            List<Capitulo> capitulos = new List<Capitulo>();
+            mainWindow.capitulos = new List<Capitulo>();
 
-            buscarPrologo(lineasLibro, capitulos);
+            buscarPrologo(mainWindow.lineasLibro, mainWindow.capitulos);
 
-            for (int i = 0; i < lineasLibro.Count; i++)
+
+
+            for (int i = 0; i < mainWindow.lineasLibro.Count; i++)
             {
                 int capi;
-                if (int.TryParse(lineasLibro[i], out capi))
+                if (int.TryParse(mainWindow.lineasLibro[i], out capi))
                 {
-                    if (capitulos.Count != 0) capitulos.Last().lineaFin = i - 1;
-                    if (capi < 10) capitulos.Add(new Capitulo { nombre = "0" + lineasLibro[i], lineaInicio = i });
-                    else capitulos.Add(new Capitulo { nombre = lineasLibro[i], lineaInicio = i });
+                    if (mainWindow.capitulos.Count != 0) mainWindow.capitulos.Last().lineaFin = i - 1;
+                    if (capi < 10) mainWindow.capitulos.Add(new Capitulo { nombre = "0" + mainWindow.lineasLibro[i], lineaInicio = i });
+                    else mainWindow.capitulos.Add(new Capitulo { nombre = mainWindow.lineasLibro[i], lineaInicio = i });
                 }
             }
 
-            buscarEpilogo(lineasLibro, capitulos);
+            buscarEpilogo(mainWindow.lineasLibro, mainWindow.capitulos);
 
-            return capitulos;
+            foreach (Capitulo item in mainWindow.capitulos)
+            {
+                mainWindow.panelCapitulos.Children.Add(addCapituloALista(item));
+            }
+        }
+
+        private static Label addCapituloALista(Capitulo capitulo)
+        {
+            Label tmp = new Label();
+
+            tmp.Content = capitulo.nombre;
+            tmp.Style = (Style)Application.Current.Resources["Label2"];
+
+            return tmp;
+
         }
 
 
@@ -52,16 +70,16 @@ namespace DivideLibros2.Modelo
 
         private static void buscarEpilogo(List<string> lineasLibro, List<Capitulo> capitulos)
         {
-            if(capitulos.Count !=0)
-            for (int i = capitulos.Last().lineaInicio; i < lineasLibro.Count; i++)
-            {
-                if (prepareToCompareString(lineasLibro[i]).Equals("EPILOGO"))
+            if (capitulos.Count != 0)
+                for (int i = capitulos.Last().lineaInicio; i < lineasLibro.Count; i++)
                 {
-                    if (capitulos.Count != 0) capitulos.Last().lineaFin = i - 1;
-                    capitulos.Add(new Capitulo { nombre = capitulos.Count + "_EPILOGO", lineaInicio = i, lineaFin = lineasLibro.Count });
+                    if (prepareToCompareString(lineasLibro[i]).Equals("EPILOGO"))
+                    {
+                        if (capitulos.Count != 0) capitulos.Last().lineaFin = i - 1;
+                        capitulos.Add(new Capitulo { nombre = capitulos.Count + "_EPILOGO", lineaInicio = i, lineaFin = lineasLibro.Count });
 
+                    }
                 }
-            }
         }
 
         #endregion
@@ -104,5 +122,7 @@ namespace DivideLibros2.Modelo
             s = s.ToUpper().Replace(" ", "");
             return s;
         }
+
+
     }
 }
