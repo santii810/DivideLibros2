@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Modelo\Algoritmo.cs" />
     <Compile Include="Modelo\Capitulo.cs" />
+    <Compile Include="Modelo\GestorCapitulos.cs" />
     <Compile Include="Modelo\GestorFichero.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

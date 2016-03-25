@@ -29,11 +29,19 @@ namespace DivideLibros2
         List<string> lineasLibro = new List<string>();
         GestorFicheros gestor = new GestorFicheros();
         List<Capitulo> capitulos = new List<Capitulo>();
+        List<Algoritmo> algoritmos = new List<Algoritmo>();
+        Algoritmo algoritmo = new Algoritmo();
+
 
 
         public MainWindow()
         {
             InitializeComponent();
+            algoritmos = RepositorioAlgoritmo.getAlgoritmos();
+            foreach (Algoritmo item in algoritmos)
+            {
+                comboBoxSeleccionarAlgoritmo.Items.Add(item.nombre);
+            }
         }
 
 
@@ -69,10 +77,34 @@ namespace DivideLibros2
             }
         }
 
-        private void ButtonSeleccionarAlgoritmo_Click(object sender, RoutedEventArgs e)
+        private void comboBoxSeleccionarAlgoritmo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            //Rellena el tipo de deteccion
+            foreach (Algoritmo item in algoritmos)
+            {
+                if (item.nombre.Equals(comboBoxSeleccionarAlgoritmo.SelectedItem.ToString()))
+                {
+                    algoritmo = item;
+                }
+            }
         }
 
+        private void ButtonDetectar_Click(object sender, RoutedEventArgs e)
+        {
+            if (labelLibro.Content.ToString() != "")
+            {
+                switch (algoritmo.id)
+                {
+                    case 1:
+                        //PROLOGO + Solo numeros
+                        capitulos = GestorCapitulos.obtenerCapitulosAlgoritmo1(lineasLibro);
+                        break;
+
+
+
+                }
+
+            }
+        }
     }
 }

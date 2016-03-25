@@ -50,8 +50,8 @@
                     <Image Source="Imagenes/algoritmo.jpg" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
                         <Label Content="Seleccionar un algoritmo" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
-                        <ComboBox Name="comboBoxSeleccionarAlgoritmo"></ComboBox>
-                        <Button Content=" Seleccionar"  Margin="10" Click="ButtonSeleccionarAlgoritmo_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
+                        <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged"></ComboBox>
+                        <Button Content="Detectar capitulos"  Margin="10" Click="ButtonDetectar_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
