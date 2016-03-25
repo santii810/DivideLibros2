@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Modelo\Algoritmo.cs" />
     <Compile Include="Modelo\Capitulo.cs" />
     <Compile Include="Modelo\GestorFichero.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -71,6 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelo\RepositorioAlgoritmo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -99,6 +101,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Imagenes\libros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Imagenes\algoritmo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

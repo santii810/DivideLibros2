@@ -41,7 +41,7 @@ namespace DivideLibros2 {
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 10 "..\..\MainWindow.xaml"
+        #line 36 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel panelPrincipal;
         
@@ -49,17 +49,33 @@ namespace DivideLibros2 {
         #line hidden
         
         
-        #line 13 "..\..\MainWindow.xaml"
+        #line 39 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.StackPanel Botones;
+        internal System.Windows.Controls.StackPanel SeleccionarLibro;
         
         #line default
         #line hidden
         
         
-        #line 17 "..\..\MainWindow.xaml"
+        #line 43 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Label labelLibro;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 49 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.StackPanel SeleccionarPatron;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 53 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox comboBoxSeleccionarAlgoritmo;
         
         #line default
         #line hidden
@@ -98,18 +114,32 @@ namespace DivideLibros2 {
             this.panelPrincipal = ((System.Windows.Controls.StackPanel)(target));
             return;
             case 2:
-            this.Botones = ((System.Windows.Controls.StackPanel)(target));
+            this.SeleccionarLibro = ((System.Windows.Controls.StackPanel)(target));
             return;
             case 3:
             
-            #line 16 "..\..\MainWindow.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
+            #line 42 "..\..\MainWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ButtonSeleccionarLibro_Click);
             
             #line default
             #line hidden
             return;
             case 4:
             this.labelLibro = ((System.Windows.Controls.Label)(target));
+            return;
+            case 5:
+            this.SeleccionarPatron = ((System.Windows.Controls.StackPanel)(target));
+            return;
+            case 6:
+            this.comboBoxSeleccionarAlgoritmo = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 7:
+            
+            #line 54 "..\..\MainWindow.xaml"
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.ButtonSeleccionarAlgoritmo_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;

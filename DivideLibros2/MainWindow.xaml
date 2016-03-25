@@ -5,16 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DivideLibros2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="Divide libros 2.0" Height="400" Width="400" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="Label1" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
+        </Style>
+        <Style x:Key="Label2" TargetType="{x:Type Label}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
+        </Style>
+        <Style x:Key="Button" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="Border" TargetType="{x:Type Border}">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+<Setter Property="Margin" Value="5"/>
+
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <StackPanel Name="panelPrincipal" Orientation="Vertical">
-            <Border BorderBrush="Black" BorderThickness="2" Margin="5">
+            <Border Style="{StaticResource Border}">
 
-                <StackPanel Name="Botones" Orientation="Horizontal" Height="110">
+                <StackPanel Name="SeleccionarLibro" Orientation="Horizontal" Height="110">
                     <Image Source="Imagenes/libros.png" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
-                        <Button Content=" Seleccionar Libro" Width="100" Height="40" Margin="10" Click="Button_Click" HorizontalAlignment="Center"/>
-                        <Label Name="labelLibro" Content="" Margin="10" HorizontalAlignment="Center"/>
+                        <Button Content=" Seleccionar Libro"   Margin="10" Click="ButtonSeleccionarLibro_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
+                        <Label Name="labelLibro" Content="" Margin="10" HorizontalAlignment="Center" Style="{StaticResource Label2}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Style="{StaticResource Border}">
+                <StackPanel Name="SeleccionarPatron" Orientation="Horizontal" Height="110">
+                    <Image Source="Imagenes/algoritmo.jpg" Height="80" Margin="10"/>
+                    <StackPanel  Orientation="Vertical" Width="280">
+                        <Label Content="Seleccionar un algoritmo" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
+                        <ComboBox Name="comboBoxSeleccionarAlgoritmo"></ComboBox>
+                        <Button Content=" Seleccionar"  Margin="10" Click="ButtonSeleccionarAlgoritmo_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,7 +47,13 @@ namespace DivideLibros2
         }
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void leerLineas()
+        {
+            lineasLibro = gestor.leerLineas();
+        }
+
+        private void ButtonSeleccionarLibro_Click(object sender, RoutedEventArgs e)
         {
             reset();
             OpenFileDialog ofd = new OpenFileDialog();
@@ -57,9 +64,15 @@ namespace DivideLibros2
                 this.labelLibro.Content = fichero.Name;
                 gestor.nombreFichero = fichero.FullName;
                 //leer todas las lineas del fichero
-                lineasLibro = gestor.leerLineas();
-
+                Thread t = new Thread(leerLineas);
+                t.Start();
             }
         }
+
+        private void ButtonSeleccionarAlgoritmo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
