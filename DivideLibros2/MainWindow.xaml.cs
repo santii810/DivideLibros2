@@ -56,10 +56,6 @@ namespace DivideLibros2
 
 
 
-        private void leerLineas()
-        {
-            lineasLibro = gestor.leerLineas();
-        }
 
         private void ButtonSeleccionarLibro_Click(object sender, RoutedEventArgs e)
         {
@@ -72,8 +68,7 @@ namespace DivideLibros2
                 this.labelLibro.Content = fichero.Name;
                 gestor.nombreFichero = fichero.FullName;
                 //leer todas las lineas del fichero
-                Thread t = new Thread(leerLineas);
-                t.Start();
+                lineasLibro = gestor.leerLineas();
             }
         }
 
@@ -114,7 +109,7 @@ namespace DivideLibros2
             }
         }
 
-        private static StackPanel addCapituloALista(Capitulo capitulo)
+        private  StackPanel addCapituloALista(Capitulo capitulo)
         {
 
             StackPanel tmpPanel = new StackPanel();
@@ -148,17 +143,10 @@ namespace DivideLibros2
             Button tmpButon = new Button();
             tmpButon.Content = "Leer";
             tmpButon.Style = (Style)Application.Current.Resources["Button"];
-            tmpButon.Click += delegate { leerCapitulo(capitulo); };
+            tmpButon.Click += delegate { new Leer(capitulo, this).Show(); };
             tmpPanel.Children.Add(tmpButon);
 
             return tmpPanel;
-
-        }
-
-        private static void leerCapitulo(Capitulo capitulo)
-        {
-            Leer leer = new Leer(capitulo, this);
-            leer.Show();
         }
 
         private void Save_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DivideLibros2"
         mc:Ignorable="d"
-        Title="Leer" Height="300" Width="300">
+        Title="Leer" Height="400" Width="600">
     <Grid>
-        <StackPanel Name="panelLineas" Orientation="Vertical"/>
-        <Label  Content=" Hola" Name="label"  FontFamily="Tempus Sans ITC" HorizontalAlignment="Left"></Label>
+        <ScrollViewer >
+            <StackPanel Name="panelLineas" Orientation="Vertical"/>
+        </ScrollViewer>
     </Grid>
 </Window>

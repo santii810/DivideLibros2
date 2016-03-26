@@ -68,10 +68,8 @@
             <Border Style="{StaticResource Border}" >
                 <StackPanel Name="MostrarResultados" Orientation="Vertical" Style="{StaticResource Panel}" >
                     <Label Content="Capitulos encontrados" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" >
-                        <StackPanel Name="panelCapitulos" Orientation="Vertical" Height="200">
-                            <StackPanel Orientation="Horizontal"/>
-                        </StackPanel>
+                    <ScrollViewer>
+                        <StackPanel Name="panelCapitulos" Orientation="Vertical" Height="200"/>
                     </ScrollViewer>
                 </StackPanel>
             </Border>
