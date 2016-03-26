@@ -34,23 +34,7 @@ namespace DivideLibros2.Modelo
                 }
             }
 
-            buscarEpilogo(mainWindow.lineasLibro, mainWindow.capitulos);
-
-            foreach (Capitulo item in mainWindow.capitulos)
-            {
-                mainWindow.panelCapitulos.Children.Add(addCapituloALista(item));
-            }
-        }
-
-        private static Label addCapituloALista(Capitulo capitulo)
-        {
-            Label tmp = new Label();
-
-            tmp.Content = capitulo.nombre;
-            tmp.Style = (Style)Application.Current.Resources["Label2"];
-
-            return tmp;
-
+            buscarEpilogo(mainWindow.lineasLibro, mainWindow.capitulos);       
         }
 
 
@@ -86,6 +70,20 @@ namespace DivideLibros2.Modelo
 
 
         #region Algoritmo2
+        public static void obtenerCapitulosAlgoritmo2(MainWindow mainWindow)
+        {
+            for (int i = 0; i < mainWindow.lineasLibro.Count; i++)
+            {
+                int capi;
+                string[] splitLinea = mainWindow.lineasLibro[i].Split(' ');
+                if (splitLinea.Length == 3 && int.TryParse(splitLinea[1], out capi))
+                {
+                    if (mainWindow.capitulos.Count != 0) mainWindow.capitulos.Last().lineaFin = i - 1;
+                    mainWindow.capitulos.Add(new Capitulo { nombre = mainWindow.lineasLibro[i], lineaInicio = i });
+                }
+            }
+            mainWindow.capitulos.Last().lineaFin = mainWindow.lineasLibro.Count;
+        }
 
         #endregion
 
@@ -122,7 +120,6 @@ namespace DivideLibros2.Modelo
             s = s.ToUpper().Replace(" ", "");
             return s;
         }
-
 
     }
 }

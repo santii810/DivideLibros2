@@ -92,8 +92,10 @@ namespace DivideLibros2
                 {
                     case 1:
                         //PROLOGO + Solo numeros
-                        Thread buscarCapitulos = new Thread(delegate () { GestorCapitulos.obtenerCapitulosAlgoritmo1(this); });
                         GestorCapitulos.obtenerCapitulosAlgoritmo1(this);
+                        break;
+                    case 2:
+                        GestorCapitulos.obtenerCapitulosAlgoritmo2(this);
                         break;
                 }
 
