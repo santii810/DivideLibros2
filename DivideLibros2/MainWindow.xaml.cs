@@ -122,11 +122,11 @@ namespace DivideLibros2
             tmpPanel.HorizontalAlignment = HorizontalAlignment.Center;
 
 
-            //Label tmpLabel = new Label();
-            //tmpLabel.Content = capitulo.nombre;
-            //tmpLabel.Style = (Style)Application.Current.Resources["Label2"];
-            //tmpLabel.Width = 50;
-            //tmpPanel.Children.Add(tmpLabel);
+            Label tmpLabel = new Label();
+            tmpLabel.Content = capitulo.nombre;
+            tmpLabel.Style = (Style)Application.Current.Resources["Label2"];
+            tmpLabel.Width = 50;
+            tmpPanel.Children.Add(tmpLabel);
 
             Label tmpLabelInicio = new Label();
             tmpLabelInicio.Content = capitulo.lineaInicio.ToString();
@@ -148,16 +148,28 @@ namespace DivideLibros2
             Button tmpButon = new Button();
             tmpButon.Content = "Leer";
             tmpButon.Style = (Style)Application.Current.Resources["Button"];
+            tmpButon.Click += delegate { leerCapitulo(capitulo); };
             tmpPanel.Children.Add(tmpButon);
 
             return tmpPanel;
 
         }
 
+        private static void leerCapitulo(Capitulo capitulo)
+        {
+            throw new NotImplementedException();
+        }
 
         private void Save_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            Directory.CreateDirectory(fichero.Directory + @"\capitulos_" + fichero.Name);
+            string directorio = fichero.Directory + @"\capitulos_" + fichero.Name + @"\";
+            string prefijo = textBoxNombre.Text;
+            foreach (Capitulo item in capitulos)
+            {
+                gestor.agregar(directorio + prefijo + "_" + item.nombre + ".txt", lineasLibro.GetRange(item.lineaInicio, (item.lineaFin - item.lineaInicio)));
+            }
+            MessageBox.Show("Ficheros generados");
         }
     }
 }
