@@ -125,7 +125,7 @@ namespace DivideLibros2
             Label tmpLabel = new Label();
             tmpLabel.Content = capitulo.nombre;
             tmpLabel.Style = (Style)Application.Current.Resources["Label2"];
-            tmpLabel.Width = 50;
+            tmpLabel.Width = 100;
             tmpPanel.Children.Add(tmpLabel);
 
             Label tmpLabelInicio = new Label();
@@ -157,7 +157,8 @@ namespace DivideLibros2
 
         private static void leerCapitulo(Capitulo capitulo)
         {
-            throw new NotImplementedException();
+            Leer leer = new Leer(capitulo, this);
+            leer.Show();
         }
 
         private void Save_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

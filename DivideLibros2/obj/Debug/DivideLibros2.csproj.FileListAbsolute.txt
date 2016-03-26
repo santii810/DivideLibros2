@@ -12,3 +12,5 @@ C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2.csproj.GenerateResource.Cache
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2.exe
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2.pdb
+C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\Leer.g.cs
+C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\Leer.baml
