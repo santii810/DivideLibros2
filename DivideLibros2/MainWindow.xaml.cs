@@ -97,6 +97,9 @@ namespace DivideLibros2
                     case 2:
                         GestorCapitulos.obtenerCapitulosAlgoritmo2(this);
                         break;
+                    case 2:
+                        GestorCapitulos.obtenerCapitulosAlgoritmo3(this);
+                        break;
                 }
 
 
