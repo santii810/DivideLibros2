@@ -9,37 +9,15 @@
 
 
     <Window.Resources>
-        <Style x:Key="Label1" TargetType="{x:Type Label}">
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
-        </Style>
-        <Style x:Key="Label2" TargetType="{x:Type Label}">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
-        </Style>
+
         <Style x:Key="TextBox" TargetType="{x:Type TextBox}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Width" Value="180"/>
         </Style>
-        <Style x:Key="Button" TargetType="{x:Type Button}">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="10"/>
-        </Style>
-        <Style x:Key="Border" TargetType="{x:Type Border}">
-            <Setter Property="BorderBrush" Value="Black"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Margin" Value="5"/>
-        </Style>
-        <Style x:Key="Panel" TargetType="{x:Type StackPanel}">
-            <Setter Property="Background" Value="White"/>
-        </Style>
+        
+     
     </Window.Resources>
 
     <Grid>
@@ -48,7 +26,7 @@
                 <StackPanel Name="SeleccionarLibro" Orientation="Horizontal" Height="110" Style="{StaticResource Panel}">
                     <Image Source="Imagenes/libros.png" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
-                        <Button Content=" Seleccionar Libro"   Margin="10" Click="ButtonSeleccionarLibro_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
+                        <Button Content=" Seleccionar Libro"   Margin="10" Click="ButtonSeleccionarLibro_Click" HorizontalAlignment="Center" Style="{StaticResource InformButton}"/>
                         <Label Name="labelLibro" Content="" Margin="10" HorizontalAlignment="Center" Style="{StaticResource Label2}"/>
                     </StackPanel>
                 </StackPanel>
@@ -60,7 +38,7 @@
                     <StackPanel  Orientation="Vertical" Width="280">
                         <Label Content="Seleccionar un algoritmo" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
                         <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged" Margin="10,0"></ComboBox>
-                        <Button Content="Detectar capitulos"  Margin="10" Click="ButtonDetectar_Click" HorizontalAlignment="Center" Style="{StaticResource Button}"/>
+                        <Button Content="Detectar capitulos"  Margin="10" Click="ButtonDetectar_Click" HorizontalAlignment="Center" Style="{StaticResource InformButton}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

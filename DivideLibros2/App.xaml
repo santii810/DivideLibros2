@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:DivideLibros2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary Source="Dictionary1.xaml" />
     </Application.Resources>
 </Application>

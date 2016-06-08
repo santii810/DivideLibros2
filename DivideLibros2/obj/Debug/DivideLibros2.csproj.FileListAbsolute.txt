@@ -1,7 +1,6 @@
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\bin\Debug\DivideLibros2.exe.config
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\bin\Debug\DivideLibros2.exe
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\bin\Debug\DivideLibros2.pdb
-C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2.csprojResolveAssemblyReference.cache
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\MainWindow.g.cs
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\App.g.cs
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2_MarkupCompile.cache
@@ -14,3 +13,5 @@ C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\DivideLibros2.pdb
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\Leer.g.cs
 C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\Leer.baml
+C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\App.baml
+C:\Users\sgomez\Repositorios\DivideLibros2\DivideLibros2\obj\Debug\Dictionary1.baml
