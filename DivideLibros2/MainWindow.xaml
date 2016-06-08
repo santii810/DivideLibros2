@@ -7,19 +7,6 @@
         mc:Ignorable="d"
         Title="Divide libros 2.0" Height="650" Width="400" ResizeMode="NoResize" Background="#FF003289">
 
-
-    <Window.Resources>
-
-        <Style x:Key="TextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Tempus Sans ITC"/>
-            <Setter Property="Margin" Value="15"/>
-            <Setter Property="Width" Value="180"/>
-        </Style>
-        
-     
-    </Window.Resources>
-
     <Grid>
         <StackPanel Name="panelPrincipal" Orientation="Vertical">
             <Border Style="{StaticResource Border}">
@@ -27,7 +14,7 @@
                     <Image Source="Imagenes/libros.png" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
                         <Button Content=" Seleccionar Libro"   Margin="10" Click="ButtonSeleccionarLibro_Click" HorizontalAlignment="Center" Style="{StaticResource InformButton}"/>
-                        <Label Name="labelLibro" Content="" Margin="10" HorizontalAlignment="Center" Style="{StaticResource Label2}"/>
+                        <Label Name="labelLibro" Content="" Margin="10" HorizontalAlignment="Center" Style="{StaticResource Label2}" Width="250"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -37,7 +24,7 @@
                     <Image Source="Imagenes/algoritmo.jpg" Height="80" Margin="10"/>
                     <StackPanel  Orientation="Vertical" Width="280">
                         <Label Content="Seleccionar un algoritmo" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
-                        <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged" Margin="10,0"></ComboBox>
+                        <ComboBox Name="comboBoxSeleccionarAlgoritmo" SelectionChanged="comboBoxSeleccionarAlgoritmo_SelectionChanged"  Width="220" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}"></ComboBox>
                         <Button Content="Detectar capitulos"  Margin="10" Click="ButtonDetectar_Click" HorizontalAlignment="Center" Style="{StaticResource InformButton}"/>
                     </StackPanel>
                 </StackPanel>
@@ -46,7 +33,7 @@
             <Border Style="{StaticResource Border}" >
                 <StackPanel Name="MostrarResultados" Orientation="Vertical" Style="{StaticResource Panel}" >
                     <Label Content="Capitulos encontrados" HorizontalAlignment="Center" Style="{StaticResource Label1}"/>
-                    <ScrollViewer Height="200">
+                    <ScrollViewer Height="200" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="panelCapitulos" Orientation="Vertical"/>
                     </ScrollViewer>
                 </StackPanel>
