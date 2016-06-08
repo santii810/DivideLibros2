@@ -29,7 +29,11 @@ namespace DivideLibros2.Modelo
                 "Las lineas anteriores a la deteccion del capitulo quedaran descartadas."
             });
 
-
+            retorno.Add(new Algoritmo
+            {
+                id = 3,
+                nombre = "Pregunta"
+            });
 
 
             return retorno;

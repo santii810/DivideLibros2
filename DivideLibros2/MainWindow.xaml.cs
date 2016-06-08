@@ -97,7 +97,7 @@ namespace DivideLibros2
                     case 2:
                         GestorCapitulos.obtenerCapitulosAlgoritmo2(this);
                         break;
-                    case 2:
+                    case 3:
                         GestorCapitulos.obtenerCapitulosAlgoritmo3(this);
                         break;
                 }
@@ -161,6 +161,7 @@ namespace DivideLibros2
             string prefijo = textBoxNombre.Text;
             foreach (Capitulo item in capitulos)
             {
+
                 gestor.agregar(directorio + prefijo + "_" + item.nombre + ".txt", lineasLibro.GetRange(item.lineaInicio, (item.lineaFin - item.lineaInicio)));
             }
             MessageBox.Show("Ficheros generados");

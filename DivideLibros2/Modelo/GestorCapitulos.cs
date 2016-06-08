@@ -19,21 +19,16 @@ namespace DivideLibros2.Modelo
             mainWindow.capitulos = new List<Capitulo>();
 
             buscarPrologo(mainWindow.lineasLibro, mainWindow.capitulos);
-
-
-            string linea = mainWindow.lineasLibro[i].Trim();
-            if (linea.Length < 30)
+            for (int i = 0; i < mainWindow.lineasLibro.Count; i++)
             {
-                for (int i = 0; i < mainWindow.lineasLibro.Count; i++)
+                string linea = mainWindow.lineasLibro[i].Trim();
+                if (linea.Length < 30)
                 {
                     int capi;
                     if (int.TryParse(linea, out capi))
-                    {
                         nuevoCapitulo(mainWindow, i, capi);
-                    }
                 }
             }
-
             buscarEpilogo(mainWindow.lineasLibro, mainWindow.capitulos);
         }
 
@@ -63,23 +58,19 @@ namespace DivideLibros2.Modelo
         {
             mainWindow.capitulos = new List<Capitulo>();
 
-            buscarPrologo(mainWindow.lineasLibro, mainWindow.capitulos);
-
-
-
+            int capi = 0;
             for (int i = 0; i < mainWindow.lineasLibro.Count; i++)
             {
-                int capi;
                 string linea = mainWindow.lineasLibro[i].Trim();
-                if (linea.Length < 30)
+                if (linea.Length < 30 && linea.ToUpper() == linea && linea != "")
                 {
-                    if (int.TryParse(linea, out capi))
-                    {
-                        nuevoCapitulo(mainWindow, i, capi);
-                    }
+                    if (capi < 10) mainWindow.lineasLibro[i] =  "0" + capi.ToString() +" "+ mainWindow.lineasLibro[i];
+                    else mainWindow.lineasLibro[i] = capi.ToString() + " " + mainWindow.lineasLibro[i];
+                    nuevoCapitulo(mainWindow, i, capi++);
                 }
             }
-            buscarEpilogo(mainWindow.lineasLibro, mainWindow.capitulos);
+            mainWindow.capitulos.Last().lineaFin = mainWindow.lineasLibro.Count;
+
         }
 
 
@@ -91,7 +82,8 @@ namespace DivideLibros2.Modelo
             {
                 if (prepareToCompareString(lineasLibro[i]).Equals("PROLOGO"))
                 {
-                    lineasLibro.RemoveRange(0, i - 1);
+                    if (i != 0)
+                        lineasLibro.RemoveRange(0, i - 1);
                     retorno.Add(new Capitulo { nombre = "00_PROLOGO", lineaInicio = 0 });
 
                 }
@@ -115,10 +107,10 @@ namespace DivideLibros2.Modelo
         private static void nuevoCapitulo(MainWindow mainWindow, int i, int capi)
         {
             if (mainWindow.capitulos.Count != 0) mainWindow.capitulos.Last().lineaFin = i - 1;
-            if (capi < 10) mainWindow.capitulos.Add(new Capitulo { nombre = "0" + mainWindow.lineasLibro[i], lineaInicio = i });
+            if (capi < 10) mainWindow.capitulos.Add(new Capitulo { nombre =  mainWindow.lineasLibro[i], lineaInicio = i });
             else mainWindow.capitulos.Add(new Capitulo { nombre = mainWindow.lineasLibro[i], lineaInicio = i });
         }
-        
+
         static private string prepareToCompareString(string s)
         {
             Regex replace_a_Accents = new Regex("[á|à|ä|â]", RegexOptions.Compiled);
